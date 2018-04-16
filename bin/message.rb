@@ -1,5 +1,4 @@
 require_relative '../lib/error'
-require 'pry'
 
 class Message
   def self.welcome
@@ -19,9 +18,7 @@ class Message
 
   def self.confirm_exit
     print 'Are you sure you want to quit? (y/n) '
-    input = gets.chomp
-    input = input.downcase
-    input.include?('y')
+    gets.chomp.downcase.include?('y')
   end
 
   def self.show_invalid_input(input)
@@ -36,4 +33,13 @@ class Message
     puts "Congratulations #{player}, you've won the game!"
   end
 
+  def self.player
+    puts %( Who do you want to play first?\n1. Human\n2.Computer)
+    loop do
+      puts 'choice: '
+      ans = gets.chomp
+      return 'human'    if ans == '1'
+      return 'computer' if ans == '2'
+    end
+  end
 end
