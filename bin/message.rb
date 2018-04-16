@@ -1,4 +1,5 @@
 require_relative '../lib/error'
+require 'pry'
 
 class Message
   def self.welcome
@@ -10,14 +11,11 @@ class Message
   end
 
   def self.option
-    puts %(1. Start
-           2. Exit
-          )
+    puts %(1. Start\n2. Exit)
     print 'Choose your option '
     option = gets.chomp
     option
   end
-
 
   def self.confirm_exit
     print 'Are you sure you want to quit? (y/n) '
