@@ -74,7 +74,7 @@ class Position
   end
 
   def end?
-    win?('x') || win?('o') || @board.count('-') == 0
+    win?('x') || win?('o') || @board.count('-').zero?
   end
 
   def to_s
